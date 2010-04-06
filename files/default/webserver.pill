@@ -1,0 +1,8 @@
+Bluepill.application "Webservice" do |app|
+  app.process "nginx" do |process|
+    process.start_command = "/etc/init.d/nginx start"
+    process.stop_command = "/etc/init.d/nginx stop"
+    process.restart_command = "/etc/init.d/nginx restart"
+    process.pid_file = "/var/run/nginx.pid"
+  end
+end

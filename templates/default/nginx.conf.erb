@@ -1,0 +1,30 @@
+user  www-data;
+worker_processes  1;
+
+pid        /var/run/nginx.pid;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    passenger_root <%= @passenger[:root] %>;
+    passenger_ruby <%= @passenger[:ruby_bin_path]%>/ruby;
+
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    server_tokens off;
+
+    sendfile        on;
+    tcp_nopush     on;
+
+    keepalive_timeout  15;
+
+    gzip  on;
+    gzip_comp_level 3;
+    gzip_types text/css text/javascript text/plain;
+
+    include vhosts/*.conf;
+}
+

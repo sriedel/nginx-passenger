@@ -1,0 +1,6 @@
+set_unless[:nginx][:version]      = "0.7.65"
+set_unless[:nginx][:url]          = "http://nginx.org/download/nginx-0.7.65.tar.gz"
+set_unless[:nginx][:prefix]       = "/opt/nginx"
+set_unless[:nginx][:cpu_optimization] = "pentium4"
+set_unless[:passenger][:version]  = "2.2.11"
+set_unless[:passenger][:ruby_bin_path] = "/opt/ree/bin"
